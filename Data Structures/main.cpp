@@ -11,7 +11,7 @@
 
 using namespace std;
 
-int main(int argc, const char * argv[]) {
+int main() {
     
     /**
      Initialization and assigning to the parent Vector class
@@ -41,10 +41,10 @@ int main(int argc, const char * argv[]) {
     cout<<"\n---------------------------------------\n\n";
     
     /**
-     Testing popBack functinoality
+     Testing popBack functionality
      Should remove the last 3 elements from the vector
      */
-    cout<<"Testing popBack functinoality\n";
+    cout<<"Testing popBack functionality\n";
     cout<<"Should remove the last 3 elements from the vector\n";
     for(int i=0; i<3; i++)
         v->popBack();
@@ -63,7 +63,7 @@ int main(int argc, const char * argv[]) {
     
     /**
      Testing the [ ] operator
-     Should print elements at all indecies
+     Should print elements at all indices
      */
     cout<<"Testing the [ ] operator\n";
     cout<<"Should print elements at all indecies\n";

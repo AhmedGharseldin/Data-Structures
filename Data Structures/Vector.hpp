@@ -26,7 +26,7 @@ public:
      */
     virtual bool empty() = 0;
     virtual int size() = 0;
-    
+    virtual void reSize() = 0;
     /**
      Modifier functions
      Functions that will adjust the contents of the Vector
