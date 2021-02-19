@@ -22,4 +22,5 @@ int main() {
     vec = &arrayVec;
     
     VectorTester<int> tester(vec);
+    tester.performTestSuite();
 }
