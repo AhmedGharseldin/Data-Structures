@@ -31,11 +31,11 @@ private:
     
     /**
      Testing the addFront  functionality
-     Should add numbers from 1 to 10 to the front of the linked list
+     Should add numbers from 1 to 5 to the front of the linked list
      */
     void testAddFront(){
         cout<<"Testing the addFront functionality\n";
-        cout<<"Should add numbers from 1 to 10 to the LinkedList\n";
+        cout<<"Should add numbers from 1 to 5 to the LinkedList\n";
         for(int i=5; i>=1; i--)
             list->addFront(i);
         list->printContents();
@@ -75,8 +75,8 @@ private:
     void testSquareBracketOperator(){
         cout<<"Testing the [ ] operator\n";
         cout<<"Should print elements at all indecies\n";
-        for(int i = 0; i<v->size(); i++)
-            cout<<"Element at index "<<i<<" = "<<list[i]<<endl;
+        for(int i = 0; i<list->size(); i++)
+            cout<<"Element at index "<<i<<" = "<<list->operator[](i)<<endl;
         cout<<"\n---------------------------------------\n\n";
     }
     
@@ -87,8 +87,8 @@ private:
     void testFrontAndBack(){
         cout<<"Testing front() and back()\n";
         cout<<"Should print the front element and back element\n";
-        cout<<"Element at the front of the vector = "<<v->front()<<endl;
-        cout<<"Element at the back of the vector = "<<v->back()<<endl;
+        cout<<"Element at the front of the vector = "<<list->front()<<endl;
+        cout<<"Element at the back of the vector = "<<list->back()<<endl;
         cout<<"\n---------------------------------------\n\n";
     }
     
@@ -111,7 +111,7 @@ private:
     void testAddAt(){
         cout<<"Testing insert functionality\n";
         cout<<"should insert number 99  at position 2\n";
-        list->insert(2, 99);
+        list->addAt(2, 99);
         list->printContents();
         cout<<"\n---------------------------------------\n\n";
     }
@@ -134,8 +134,8 @@ private:
     }
     
 public:
-    VectorTester(Vector<T> *vec){
-        this->v = vec;
+    LinkedListTester<T>(DoubleLinkedList<T> *list){
+        this->list = list;
     }
     
     void performTestSuite(){
