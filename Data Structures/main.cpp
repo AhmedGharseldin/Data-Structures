@@ -9,6 +9,8 @@
 #include "Vector.hpp"
 #include "ArrayVector.hpp"
 #include "VectorTester.h"
+#include "DoubleLinkedList.hpp"
+#include "LinkedListTester.hpp"
 
 using namespace std;
 
@@ -22,5 +24,11 @@ int main() {
     vec = &arrayVec;
     
     VectorTester<int> tester(vec);
-    tester.performTestSuite();
+//    tester.performTestSuite();
+    
+    DoubleLinkedList<int> *list = new DoubleLinkedList<int>();
+    LinkedListTester<int> *linkedListTester = new ::LinkedListTester<int>(list);
+    linkedListTester->performTestSuite();
+    
+    
 }
