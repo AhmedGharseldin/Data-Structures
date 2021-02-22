@@ -38,10 +38,10 @@ public:
     {
         // In your case where there are no head and tail sentinals we don't really need a constructor
         // so you can ignore this.
-        Node<E> *temp = new Node<E>();
-        temp->next = NULL;
-        temp->prev = NULL;
-        head = tail = NULL;
+//        Node<E> *temp = new Node<E>();
+//        temp->next = NULL;
+//        temp->prev = NULL;
+//        head = tail = NULL;
     };
 
     E front()
@@ -65,13 +65,14 @@ public:
         {
             // you forgot to add the data here to make it e
             Node<E> *temp = new Node<E>();
+            temp->data = e;
             temp->next = head;
             temp->prev = NULL;
             // you meant to write this the other way round
             // head->prev = temp;
             // Other than that it all looks perfect
             // You will see that its breaking the test. Fix it and it will work
-            temp = head->prev;
+            head->prev = temp;
             head = temp;
             count++;
         }
@@ -82,6 +83,7 @@ public:
             temp->next = NULL;
             temp->prev = NULL;
             head = tail = temp;
+            count++;
         }
     };
 
@@ -112,9 +114,6 @@ public:
         head = head->next;
         head->prev = NULL;
         count--;
-        
-        // Not sure about this part.
-        Node<E> *current = head;
     };
 
     void removeBack()
@@ -128,21 +127,21 @@ public:
     void swap(int firstPosition, int secondPosition){
         assert((firstPosition >= 0 && firstPosition <= count) && (secondPosition >= 0 && secondPosition <= count));
         Node<E> *firstNode = head;
-        for (int i = 0; firstNode != NULL; i++)
-        {
-            if (i == firstPosition)
-                break;
-            else
-                firstNode = firstNode->next;
-        }
+        Node<E> *secondNode = head;
+        for (int i = 0; i<= firstPosition; i++)
+            firstNode = firstNode->next;
+        for (int i = 0; i<= secondPosition; i++)
+            secondNode = secondNode->next;
+        E temp = firstNode->data;
+        firstNode->data = secondNode->data;
+        secondNode->data = temp;
         // Not sure what you did here. But you want to swap the firstPosition with another second position
         // for example  swap(5, 1)  means I want to swap the value of index 5 with the value in index 1
         // so you must search for second Node the same way you searched for firstNode then swap values
-        Node<E> *secondNode = firstNode->next;
-        firstNode->next = secondNode->next;
-        secondNode->prev = firstNode->prev;
-        firstNode->prev = secondNode;
-        secondNode->next = firstNode;
+//        firstNode->next = secondNode->next;
+//        secondNode->prev = firstNode->prev;
+//        firstNode->prev = secondNode;
+//        secondNode->next = firstNode;
     };
  
     // Perfect
@@ -230,11 +229,8 @@ public:
         else
         {
             Node<E> *deleteNode = head;
-            for (int i = 0; deleteNode != NULL; i++)
+            for (int i = 0; i<= index; i++)
             {
-                if (i == index)
-                    break;
-                else
                     deleteNode = deleteNode->next;
             }
             deleteNode->prev = deleteNode->next;
