@@ -23,16 +23,16 @@ public:
      Constructors
      */
     LinkedListVector(){
-        
+        list = new DoubleLinkedList<T>();
     };
     
     /**
      Access functions
      Functions that will access different areas of the Vector
      */
-    T &operator[](const int index) override{
-        return at(index);
-    }
+//    T &operator[](const int index) override{
+//        return at(index);
+//    }
     
     T at(int index) override{
         return list->at(index);

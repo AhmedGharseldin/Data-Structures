@@ -152,7 +152,7 @@ public:
         testPushBack();
         testPopBack();
         testAtIndex();
-        testSquareBracketOperator();
+//        testSquareBracketOperator();
         testFrontAndBack();
         testSwap();
         testInsert();

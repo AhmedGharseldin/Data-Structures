@@ -16,7 +16,7 @@ public:
      Access functions
      Functions that will access different areas of the Vector
      */
-    virtual T &operator[](const int index) = 0;
+//    virtual T &operator[](const int index) = 0;
     virtual int at(int position) = 0;
     virtual int front() = 0;
     virtual int back() = 0;
