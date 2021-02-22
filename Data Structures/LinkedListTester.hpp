@@ -25,7 +25,7 @@ private:
     void testPrint(){
         cout<<"Testing the print function\n";
         cout<<"Should print an empty LinkedList\n";
-        list->printContents();
+        list->printContentsWithoutSentinals();
         cout<<"\n---------------------------------------\n\n";
     }
     
@@ -38,7 +38,7 @@ private:
         cout<<"Should add numbers from 1 to 5 to the LinkedList\n";
         for(int i=5; i>=1; i--)
             list->addFront(i);
-        list->printContents();
+        list->printContentsWithoutSentinals();
         cout<<"\n---------------------------------------\n\n";
     }
     
@@ -51,7 +51,7 @@ private:
         cout<<"Should add the numbers  6-10 from the back of the LinkedList\n";
         for(int i=6; i<=10; i++)
             list->addBack(i);
-        list->printContents();
+        list->printContentsWithoutSentinals();
         cout<<"\n---------------------------------------\n\n";
     }
     
@@ -100,7 +100,7 @@ private:
         cout<<"Testing swap functionality\n";
         cout<<"Should swap the first and second element\n";
         list->swap(0, 1);
-        list->printContents();
+        list->printContentsWithoutSentinals();
         cout<<"\n---------------------------------------\n\n";
     }
     
@@ -112,7 +112,7 @@ private:
         cout<<"Testing insert functionality\n";
         cout<<"should insert number 99  at position 2\n";
         list->addAt(2, 99);
-        list->printContents();
+        list->printContentsWithoutSentinals();
         cout<<"\n---------------------------------------\n\n";
     }
     
@@ -122,12 +122,12 @@ private:
     void testEmptySizeClear(){
         cout<<"Testing empty, size and clear functionality\n";
         cout<<"Current Array\n";
-        list->printContents();
+        list->printContentsWithoutSentinals();
         cout<<"Current size of the Linked List is = "<<list->size()<<endl;
         cout<<"Current Linked List is empty = "<<(list->empty()?"True":"False")<<endl;
         cout<<"# running clear()"<<endl;
         list->clear();
-        list->printContents();
+        list->printContentsWithoutSentinals();
         cout<<"Current size of the Linked List is = "<<list->size()<<endl;
         cout<<"Current Linked List is empty = "<<(list->empty()?"True":"False")<<endl;
         cout<<"\n---------------------------------------\n\n";
