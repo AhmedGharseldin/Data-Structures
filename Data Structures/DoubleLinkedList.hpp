@@ -250,18 +250,18 @@ public:
         
         // Print one way to check forward connections
         Node<E> *cursor = head;
-        cout<<"Forward connections - [Head] => ["<<cursor->data<<"] ";
+        cout<<"Forward connections - [Head] ";
         while(cursor != tail){
-            cursor = cursor->next;
             cout<<"=> ["<<cursor->data<<"]";
+            cursor = cursor->next;
         }
         cout<<"=> ["<<cursor->data<<"] <= [Tail]\n";
         
         // Print the other way to check backward connections
-        cout<<"Backward connections - [Tail] => ["<<cursor->data<<"] ";
+        cout<<"Backward connections - [Tail] ";
         while(cursor != head){
-            cursor = cursor->prev;
             cout<<"=> ["<<cursor->data<<"]";
+            cursor = cursor->prev;
         }
         cout<<"=> ["<<cursor->data<<"] <= [Head]\n";
     }
