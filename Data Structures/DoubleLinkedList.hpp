@@ -36,6 +36,8 @@ private:
 public:
     DoubleLinkedList()
     {
+        // In your case where there are no head and tail sentinals we don't really need a constructor
+        // so you can ignore this.
         Node<E> *temp = new Node<E>();
         temp->next = NULL;
         temp->prev = NULL;
@@ -44,23 +46,31 @@ public:
 
     E front()
     {
+        // LGTM (this means Looks good to me, you will typically see this in code reviews when you start working)
         assert(head != NULL);
         return head->data;
     };
 
     E back()
     {
+        // LGTM
         assert(tail != NULL);
         return tail->data;
     };
 
     void addFront(E e)
     {
+        
         if (head)
         {
+            // you forgot to add the data here to make it e
             Node<E> *temp = new Node<E>();
             temp->next = head;
             temp->prev = NULL;
+            // you meant to write this the other way round
+            // head->prev = temp;
+            // Other than that it all looks perfect
+            // You will see that its breaking the test. Fix it and it will work
             temp = head->prev;
             head = temp;
             count++;
@@ -83,12 +93,15 @@ public:
             temp->data = e;
             temp->next = NULL;
             temp->prev = tail;
+            // See you did it right here as opposed to up there in the add front
+            // where you said - temp = head->prev;
             tail->next = temp;
             tail = temp;
             count++;
         }
         else
         {
+            // very cool reuse of functions
             addFront(e);
         }
     };
@@ -99,6 +112,8 @@ public:
         head = head->next;
         head->prev = NULL;
         count--;
+        
+        // Not sure about this part.
         Node<E> *current = head;
     };
 
@@ -120,6 +135,9 @@ public:
             else
                 firstNode = firstNode->next;
         }
+        // Not sure what you did here. But you want to swap the firstPosition with another second position
+        // for example  swap(5, 1)  means I want to swap the value of index 5 with the value in index 1
+        // so you must search for second Node the same way you searched for firstNode then swap values
         Node<E> *secondNode = firstNode->next;
         firstNode->next = secondNode->next;
         secondNode->prev = firstNode->prev;
@@ -127,16 +145,19 @@ public:
         secondNode->next = firstNode;
     };
  
+    // Perfect
     int size()
     {
         return count;
     };
 
+    // Perfect
     bool empty()
     {
         return (!count);
     };
 
+    // Perfect
     void clear()
     {
         head->next = NULL;
@@ -149,6 +170,14 @@ public:
     {
         assert(position >= 0 && position <= count);
         Node<E> *current = head;
+        // When looking for a node, since you made the assertion at the beginning you can do the following
+        /**
+         for(int i=1; i<=position; i++)
+             current = current->next;
+         if its index zero it will never move
+         if its index 1 it will move once
+         if its index 2 it will move twice etc.
+         */
         for (int i = 0; current != NULL; i++)
         {
             if (i == position)
@@ -161,6 +190,7 @@ public:
 
     E operator[](const int index)
     {
+        // Cool reuse of functions. I like that
         return at(index);
     }
 
@@ -213,6 +243,33 @@ public:
         }
     };
 
+    void printContentsWithoutSentinals(){
+        if(count == 0){
+            cout<<"Forward connections - ";
+            cout<<"[Head] => NULL <= [Tail]\n";
+            cout<<"Backward connections - ";
+            cout<<"[Tail] => NULL <= [Head]\n";
+            return;
+        }
+        
+        // Print one way to check forward connections
+        Node<E> *cursor = head;
+        cout<<"Forward connections - [Head] => ["<<cursor->data<<"] ";
+        while(cursor != tail){
+            cursor = cursor->next;
+            cout<<"=> ["<<cursor->data<<"]";
+        }
+        cout<<"=> ["<<cursor->data<<"] <= [Tail]\n";
+        
+        // Print the other way to check backward connections
+        cout<<"Backward connections - [Tail] => ["<<cursor->data<<"] ";
+        while(cursor != head){
+            cursor = cursor->prev;
+            cout<<"=> ["<<cursor->data<<"]";
+        }
+        cout<<"=> ["<<cursor->data<<"] <= [Head]\n";
+    }
+    
     void printContents(){
         Node<E> *cursor = head;
         cout<<"Forward connections - ";
