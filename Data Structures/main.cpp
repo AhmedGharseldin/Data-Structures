@@ -11,6 +11,7 @@
 #include "VectorTester.h"
 #include "DoubleLinkedList.hpp"
 #include "LinkedListTester.hpp"
+#include "LinkedListVector.hpp"
 
 using namespace std;
 
@@ -20,15 +21,16 @@ int main() {
      Initialization and assigning to the parent Vector class
      */
     Vector<int> *vec;
-    ArrayVector<int> arrayVec;
-    vec = &arrayVec;
+//    ArrayVector<int> arrayVec;
+    LinkedListVector<int> listVector;
+    vec = &listVector;
     
     VectorTester<int> tester(vec);
-//    tester.performTestSuite();
+    tester.performTestSuite();
     
-    DoubleLinkedList<int> *list = new DoubleLinkedList<int>();
-    LinkedListTester<int> *linkedListTester = new ::LinkedListTester<int>(list);
-    linkedListTester->performTestSuite();
+//    DoubleLinkedList<int> *list = new DoubleLinkedList<int>();
+//    LinkedListTester<int> *linkedListTester = new ::LinkedListTester<int>(list);
+//    linkedListTester->performTestSuite();
     
     
 }
