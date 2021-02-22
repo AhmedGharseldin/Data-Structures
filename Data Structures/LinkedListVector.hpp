@@ -31,29 +31,29 @@ public:
      Functions that will access different areas of the Vector
      */
     T &operator[](const int index) override{
-        return NULL;
+        return at(index);
     }
     
     T at(int index) override{
-        return NULL;
+        return list->at(index);
     };
     
     T front() override{
-        return NULL;
+        return list->front();
     };
     
     T back() override{
-        return NULL;
+        return list->back();
     };
     
     /**
      Size related functions
      */
     bool empty() override{
-        return false;
+        return list->empty();
     };
     int size() override{
-        
+        return list->size();
     };
     void reSize() override{
         // Not required in this implementation
@@ -63,23 +63,23 @@ public:
      Functions that will adjust the contents of the Vector
      */
     void push_back(T element) override{
-       
+        list->addBack(element);
     };
     
     void insert(int position, T element) override{
-       
+        list->addAt(position, element);
     };
     
     void swap(int first_position, int second_position) override{
-       
+        list->swap(first_position, second_position);
     };
     
     void clear() override{
-    
+        list->clear();
     };
     
     void popBack() override{
-       
+        list->removeBack();
     };
     
     /**

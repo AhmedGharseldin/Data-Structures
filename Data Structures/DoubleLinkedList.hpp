@@ -128,9 +128,9 @@ public:
         assert((firstPosition >= 0 && firstPosition <= count) && (secondPosition >= 0 && secondPosition <= count));
         Node<E> *firstNode = head;
         Node<E> *secondNode = head;
-        for (int i = 0; i<= firstPosition; i++)
+        for (int i = 0; i< firstPosition; i++)
             firstNode = firstNode->next;
-        for (int i = 0; i<= secondPosition; i++)
+        for (int i = 0; i< secondPosition; i++)
             secondNode = secondNode->next;
         E temp = firstNode->data;
         firstNode->data = secondNode->data;
@@ -215,6 +215,7 @@ public:
             insertNode->prev = previousNode;
             previousNode->next = insertNode;
             previousNode->next->prev = insertNode;
+            count++;
         }
     };
 
