@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		342377F225E3A6C8005B30C3 /* LinkedListVector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinkedListVector.hpp; sourceTree = "<group>"; };
 		34D4C23D25DA600A0020C31B /* Vector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
 		34D4C24025DA60230020C31B /* ArrayVector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArrayVector.hpp; sourceTree = "<group>"; };
 		34D4C24225DF9AB50020C31B /* VectorTester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VectorTester.h; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 				34D4C23D25DA600A0020C31B /* Vector.hpp */,
 				34D4C24225DF9AB50020C31B /* VectorTester.h */,
 				34D4C24025DA60230020C31B /* ArrayVector.hpp */,
+				342377F225E3A6C8005B30C3 /* LinkedListVector.hpp */,
 				34D4C24B25E0F3E70020C31B /* LinkedListTester.hpp */,
 			);
 			path = "Data Structures";
