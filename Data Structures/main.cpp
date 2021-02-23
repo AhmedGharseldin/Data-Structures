@@ -12,6 +12,10 @@
 #include "DoubleLinkedList.hpp"
 #include "LinkedListTester.hpp"
 #include "LinkedListVector.hpp"
+#include "Stack.h"
+#include "Queue.h"
+#include "StackTester.h"
+#include "QueueTester.h"
 
 using namespace std;
 
@@ -20,17 +24,26 @@ int main() {
     /**
      Initialization and assigning to the parent Vector class
      */
-    Vector<int> *vec;
+//    Vector<int> *vec;
 //    ArrayVector<int> arrayVec;
-    LinkedListVector<int> listVector;
-    vec = &listVector;
+//    LinkedListVector<int> listVector;
+//    vec = &listVector;
     
-    VectorTester<int> tester(vec);
-    tester.performTestSuite();
-    
+//    ˇVectorTester<int> tester(vec);
+//    tester.performTestSuite();
+//
 //    DoubleLinkedList<int> *list = new DoubleLinkedList<int>();
 //    LinkedListTester<int> *linkedListTester = new ::LinkedListTester<int>(list);
 //    linkedListTester->performTestSuite();
     
+//____________________________________
     
+//    Stack<int> *S = new Stack<int>;
+//    StackTester<int> *StackTester = new::StackTester<int>(S);
+//    StackTester->testingStack();
+//____________________________________
+    
+    Queue<int> *Q = new Queue<int>;
+    QueueTester<int> *QueueTester = new::QueueTester<int>(Q);
+    QueueTester->testingQueue();
 }
